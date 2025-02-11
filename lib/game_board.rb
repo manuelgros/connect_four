@@ -1,19 +1,22 @@
 # frozen_string_literal: true
 
-# Class for the game board (size 7 wide and 6 high)
+# Class for the game board (size 7 wide and 6 high), includes methods
+# to create and navigate the game board
 class GameBoard
   attr_reader :coordinates
 
-  def initialize
+  def initialize(width = 7, height = 6)
+    @width = width
+    @height = height
     @coordinates = create_coordinates
-    @board = {}
+    @board = create_board(coordinates)
     @white_tile = "\u26AA"
     @black_tile = "\u26AB"
   end
 
   def create_coordinates
-    x_coord = Array(0..6)
-    y_coord = Array(0..5)
+    x_coord = Array(0..(@width - 1))
+    y_coord = Array(0..(@height - 1))
     x_coord.each_with_object([]) do |first_ele, coord_arr|
       y_coord.each { |second_ele| coord_arr << [first_ele, second_ele] }
       coord_arr
@@ -27,6 +30,20 @@ class GameBoard
     end
   end
 
-  def select_field(column)
+  def column?(selection)
+    @coordinates.any? { |coord_pair| coord_pair[0] == selection - 1 }
+  end
+
+  # method to return array with all coordinates in selected column
+  def select_column(selection)
+    @coordinates.select { |coord_pair| coord_pair[0] == selection - 1 }
+  end
+
+  # returns the first position == nil in column from bottom up
+  def find_position(column_arr, hash = @board)
+    column_arr.each do |coord_pair|
+      return coord_pair if hash[coord_pair].nil?
+    end
+    false
   end
 end
