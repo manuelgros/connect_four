@@ -119,4 +119,31 @@ describe GameBoard do
       end
     end
   end
+
+  describe '#column_full?' do
+    context 'when given array with all coordinates for a column' do
+      subject(:game_full) { described_class.new(7, 6) }
+      let(:column_arr) { [[0, 0], [0, 1], [0, 2], [0, 3], [0, 4], [0, 5]] }
+
+      context 'for which board_hash has free values (nil)' do
+        let(:free_board) { game_full.board }
+
+        it 'returns false' do
+          expect(game_full.column_full?(column_arr, free_board)).to be false
+        end
+      end
+
+      context 'if all positions in column are already taken' do
+        let(:full_board) { game_full.board }
+
+        before do
+          column_arr.each { |coord_pair| full_board[coord_pair] = 'X' }
+        end
+
+        it 'returns false' do
+          expect(game_full.column_full?(column_arr, full_board)).to be true
+        end
+      end
+    end
+  end
 end

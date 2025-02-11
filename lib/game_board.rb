@@ -3,7 +3,7 @@
 # Class for the game board (size 7 wide and 6 high), includes methods
 # to create and navigate the game board
 class GameBoard
-  attr_reader :coordinates
+  attr_reader :coordinates, :board
 
   def initialize(width = 7, height = 6)
     @width = width
@@ -39,11 +39,15 @@ class GameBoard
     @coordinates.select { |coord_pair| coord_pair[0] == selection - 1 }
   end
 
+  # moved check for full column into own method, still have to write tests for it
+  def column_full?(column_arr, board_hash = @board)
+    column_arr.all? { |coord_pair| !board_hash[coord_pair].nil? }
+  end
+
   # returns the first position == nil in column from bottom up
   def find_position(column_arr, hash = @board)
     column_arr.each do |coord_pair|
       return coord_pair if hash[coord_pair].nil?
     end
-    false
   end
 end
