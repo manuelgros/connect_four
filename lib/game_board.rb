@@ -14,6 +14,7 @@ class GameBoard
     @black_tile = "\u26AB"
   end
 
+  # Creates coordinates[] with all possible positions on playing board
   def create_coordinates
     x_coord = Array(0..(@width - 1))
     y_coord = Array(0..(@height - 1))
@@ -23,6 +24,7 @@ class GameBoard
     end
   end
 
+  # Creates board{} from coordinates[] with all values set to nil
   def create_board(coord_arr)
     coord_arr.each_with_object({}) do |coord, hash|
       hash[coord] = nil
@@ -30,6 +32,7 @@ class GameBoard
     end
   end
 
+  # method to check if column exists in board range
   def column?(selection)
     @coordinates.any? { |coord_pair| coord_pair[0] == selection - 1 }
   end
