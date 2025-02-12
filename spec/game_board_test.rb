@@ -3,7 +3,7 @@
 # Tests for GameBoard Class
 require './lib/game_board'
 
-describe GameBoard do
+describe GameBoard do # rubocop:disable Metrics/BlockLength
   describe '#create_coordinates' do
     context 'when initialize the GameBoard class without width/height specifications' do
       subject(:game_coordinates) { described_class.new }
