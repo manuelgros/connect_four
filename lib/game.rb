@@ -12,5 +12,15 @@ class Game
     @player_one = Player.new
     @player_two = Player.new
     @board = GameBoard.new
+    @current_turn = player_one
+  end
+
+  def player_move(player)
+    loop do
+      move = player.select_move
+      break move.to_i if board.column?(move) && move.match?(/\A\d+\Z/)
+
+      game_notification(:selection_error)
+    end
   end
 end
