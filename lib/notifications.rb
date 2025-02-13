@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+# rubocop:disable Lint/UselessAssignment
+
 # Notification module
 module Notifications
   player_notification = {
