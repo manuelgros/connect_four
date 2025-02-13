@@ -53,4 +53,8 @@ class GameBoard
       return coord_pair if hash[coord_pair].nil?
     end
   end
+
+  def update_position(position, marker)
+    @board[position] = marker
+  end
 end

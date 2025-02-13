@@ -148,4 +148,14 @@ describe GameBoard do
       end
     end
   end
+
+  describe '#update_position' do
+    context 'when given coordinates and marker' do
+      subject(:game_update) { described_class.new }
+
+      it 'changes the corelating value in board_hash for the coord key' do
+        expect { game_update.update_position([1, 1], 'X') }.to change { game_update.board[[1, 1]] }.from(nil).to('X')
+      end
+    end
+  end
 end
