@@ -10,4 +10,9 @@ module Notifications
     greet_player: "Hi #{@name}!",
     column_full: 'This column is full! Pick another move'
   }
+
+  game_notification = {
+    selection_error: "Your selection is invalid, please select a column
+    between 1 and #{board.width}"
+  }
 end
