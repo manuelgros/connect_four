@@ -15,12 +15,14 @@ class Game
     @current_turn = player_one
   end
 
-  def player_move(player)
+  def player_selection(player)
     loop do
-      move = player.select_move
-      break move.to_i if board.column_exist?(move) && move.match?(/\A\d+\Z/)
+      selection = player.select_move
+      break selection.to_i if board.column_exist?(selection) && selection.match?(/\A\d+\Z/)
 
       game_notification(:selection_error)
     end
   end
+
+  def execute_move(selection)
 end
