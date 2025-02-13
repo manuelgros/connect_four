@@ -43,21 +43,21 @@ describe GameBoard do
     end
   end
 
-  describe '#column?' do
+  describe '#column_exist?' do
     context 'when navigating board with width = 7' do
       subject(:game_verify) { described_class.new(7, 6) }
 
       context 'when selection is insider of width range' do
         it 'returns true' do
           selection = 5
-          expect(game_verify.column?(selection)).to be true
+          expect(game_verify.column_exist?(selection)).to be true
         end
       end
 
       context 'when selection is outside of width range' do
         it 'returns false' do
           selection = 8
-          expect(game_verify.column?(selection)).to be false
+          expect(game_verify.column_exist?(selection)).to be false
         end
       end
     end

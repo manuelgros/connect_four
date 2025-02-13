@@ -33,7 +33,7 @@ class GameBoard
   end
 
   # method to check if column exists in board range
-  def column?(selection)
+  def column_exist?(selection)
     @coordinates.any? { |coord_pair| coord_pair[0] == selection - 1 }
   end
 
