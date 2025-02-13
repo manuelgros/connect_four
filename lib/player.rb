@@ -8,9 +8,10 @@ class Player
 
   include Notifications
 
-  def initialize
+  def initialize(marker)
     @name = select_name
     @player_number = nil
+    @marker = marker
   end
 
   def select_name
