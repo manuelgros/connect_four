@@ -11,6 +11,11 @@ module Notifications
   }
 
   game_notification = {
+    introduction: 'Connect Four is a two-player game where you take
+    turns dropping colored discs into a vertical grid.
+    Your goal is to get four in a row—horizontally,
+    vertically, or diagonally—before your opponent does.
+    Block their moves while setting up your own to win!',
     selection_error: "Your selection is invalid, please select a column
     between 1 and #{board.width}",
     column_full: 'This column is full! Pick another move'
