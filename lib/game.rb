@@ -18,7 +18,7 @@ class Game
   def player_move(player)
     loop do
       move = player.select_move
-      break move.to_i if board.column?(move) && move.match?(/\A\d+\Z/)
+      break move.to_i if board.column_exist?(move) && move.match?(/\A\d+\Z/)
 
       game_notification(:selection_error)
     end
