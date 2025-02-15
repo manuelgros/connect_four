@@ -47,6 +47,10 @@ class GameBoard
     column_arr.all? { |coord_pair| !board_hash[coord_pair].nil? }
   end
 
+  def board_full?
+    @board.all? { |_key, value| !value.nil? }
+  end
+
   # returns the first position == nil in column from bottom up
   def find_position(column_arr, hash = @board)
     column_arr.each do |coord_pair|
