@@ -18,6 +18,8 @@ module Notifications
     Block their moves while setting up your own to win!',
     selection_error: "Your selection is invalid, please select a column
     between 1 and #{board.width}",
-    column_full: 'This column is full! Pick another move'
+    column_full: 'This column is full! Pick another move',
+    game_over_win: "#{current_player} has won the game! Nice one",
+    game_over_full: 'No more moves left. It looks like a tie'
   }
 end
