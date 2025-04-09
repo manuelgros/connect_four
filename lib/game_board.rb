@@ -3,7 +3,7 @@
 # Class for the game board (size 7 wide and 6 high), includes methods
 # to create and navigate the game board
 class GameBoard
-  attr_reader :coordinates, :board
+  attr_reader :coordinates, :board, :width, :white_tile, :black_tile
 
   def initialize(width = 7, height = 6)
     @width = width
@@ -34,12 +34,12 @@ class GameBoard
 
   # method to check if column exists in board range
   def column_exist?(selection)
-    @coordinates.any? { |coord_pair| coord_pair[0] == selection - 1 }
+    @coordinates.any? { |coord_pair| coord_pair[0] == selection.to_i - 1 }
   end
 
   # method to return array with all coordinates in selected column
   def select_column(selection)
-    @coordinates.select { |coord_pair| coord_pair[0] == selection - 1 }
+    @coordinates.select { |coord_pair| coord_pair[0] == selection.to_i - 1 }
   end
 
   # moved check for full column into own method, still have to write tests for it
