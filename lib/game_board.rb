@@ -10,8 +10,6 @@ class GameBoard
     @height = height
     @coordinates = create_coordinates
     @board = create_board(coordinates)
-    @white_tile = "\u26AA"
-    @black_tile = "\u26AB"
   end
 
   # Creates coordinates[] with all possible positions on playing board
