@@ -14,8 +14,8 @@ class Game
 
   def initialize
     @current_board = GameBoard.new
-    @player_one = Player.new('1', ' 1 ')
-    @player_two = Player.new('2', ' 2 ')
+    @player_one = Player.new('1', '1')
+    @player_two = Player.new('2', '2')
     @current_player = player_one
   end
 
@@ -68,10 +68,10 @@ class Game
   end
 
   def play_full_round
-    display_board(current_board.board)
+    display_board(render(current_board.board))
     until check_for_win? || current_board.board_full?
       execute_move(@current_player)
-      display_board(current_board.board)
+      display_board(render(current_board.board))
       next_player
     end
     return puts game_notification(:game_over_win) if check_for_win?
