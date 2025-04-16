@@ -14,8 +14,8 @@ class Game
 
   def initialize
     @current_board = GameBoard.new
-    @player_one = Player.new('1', current_board.white_tile)
-    @player_two = Player.new('2', current_board.black_tile)
+    @player_one = Player.new('1', ' 1 ')
+    @player_two = Player.new('2', ' 2 ')
     @current_player = player_one
   end
 
