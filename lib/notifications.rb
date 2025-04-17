@@ -23,7 +23,7 @@ module Notifications
       selection_error: "Your selection is invalid, please select a column
       between 1 and 7",
       column_full: 'This column is full! Pick another move',
-      game_over_win: "#{@current_player} has won the game! Nice one",
+      game_over_win: "#{@current_player.name} has won the game! Nice one",
       game_over_full: 'No more moves left. It looks like a tie'
     }[message]
   end

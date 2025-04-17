@@ -7,7 +7,7 @@ class Player
   include Notifications
 
   attr_accessor :player_number
-  attr_reader :marker
+  attr_reader :marker, :name
 
   def initialize(player_number, marker)
     @player_number = player_number
