@@ -6,14 +6,6 @@ require 'colorize'
 
 # Notification module
 module Notifications
-  def type_out(text, speed = 0.02)
-    text.each_char do |char|
-      print char
-      sleep(speed)
-    end
-    puts
-  end
-
   def player_notification(message)
     {
       select_name: "Type in name for Player #{@player_number}: ".colorize(:yellow),
@@ -35,6 +27,14 @@ Block their moves while setting up your own to win!\n\nLet's GO!!!...\n".coloriz
       game_over_win: "#{@current_player.name} has won the game! Nice one".colorize(:green),
       game_over_full: 'No more moves left. It looks like a tie'.colorize(:red)
     }[message]
+  end
+
+  def type_out(text, speed = 0.02)
+    text.each_char do |char|
+      print char
+      sleep(speed)
+    end
+    puts
   end
 end
 # rubocop:enable Metrics/MethodLength
