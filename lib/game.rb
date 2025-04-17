@@ -66,6 +66,19 @@ class Game
     end
   end
 
+  def play_again
+    print game_notification(:play_again)
+    answer = gets.chomp.downcase
+    if answer == 'y'
+      Game.new.play_full_round
+    elsif answer == 'n'
+      puts game_notification(:game_end)
+    else
+      puts game_notification(:answer_error)
+      play_again
+    end
+  end
+
   def play_full_round
     type_out(game_notification(:introduction))
     print_board
@@ -77,8 +90,7 @@ class Game
 
       next_player
     end
-    return puts game_notification(:game_over_win) if check_for_win?
-
-    puts game_notification(:game_over_full)
+    puts check_for_win? ? game_notification(:game_over_win) : game_notification(:game_over_full)
+    play_again
   end
 end

@@ -25,7 +25,10 @@ Block their moves while setting up your own to win!\n\nLet's GO!!!...\n".coloriz
       between 1 and 7".colorize(:red),
       column_full: 'This column is full! Pick another move'.colorize(:red),
       game_over_win: "#{@current_player.name} has won the game! Nice one".colorize(:green),
-      game_over_full: 'No more moves left. It looks like a tie'.colorize(:red)
+      game_over_full: 'No more moves left. It looks like a tie'.colorize(:red),
+      play_again: 'Do you want to play another round? (Y / N)',
+      answer_error: 'Please answer with yes (Y) or no (N)',
+      game_end: 'Alright, see you next time!'
     }[message]
   end
 
