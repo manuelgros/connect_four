@@ -35,6 +35,7 @@ Block their moves while setting up your own to win!\n\nLet's GO!!!...\n".coloriz
       sleep(speed)
     end
     puts
+    sleep(1)
   end
 end
 # rubocop:enable Metrics/MethodLength
