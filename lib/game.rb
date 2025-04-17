@@ -45,7 +45,6 @@ class Game
   end
 
   def check_for_win?
-    # neighbors = [[0, 1], [1, 1], [1, 0], [1, -1], [0, -1], [-1, -1], [-1, 0], [-1, 1]]
     directions = [[0, 1], [1, 1], [1, 0]]
     current_board.board.each_pair do |start_position, symbol|
       next if symbol.nil?
