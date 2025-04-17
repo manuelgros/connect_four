@@ -1,3 +1,5 @@
+require 'colorize'
+
 # Rendering module for presentation in command line
 module Rendering
   # Merges all values of Hash that belong to certain row into a string
@@ -13,7 +15,6 @@ module Rendering
     rows = [0, 1, 2, 3, 4, 5]
     rows.reverse.reduce('') do |string, row|
       string << "#{format_row(board_hash, row)}\n"
-      string << "\n"
       string
     end
   end
@@ -35,5 +36,6 @@ module Rendering
   # Script to format and then print the entire playing board.
   def print_board
     puts format_board(render_marker(@current_board.board))
+    puts ' 1   2   3   4   5   6   7 '.colorize(:red)
   end
 end
