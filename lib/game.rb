@@ -10,6 +10,7 @@ class Game
   include Notifications
   include Rendering
 
+  # attr_accessor :current_board
   attr_reader :current_player, :current_board, :player_one, :player_two
 
   def initialize
@@ -17,6 +18,7 @@ class Game
     @player_one = Player.new('1', '1')
     @player_two = Player.new('2', '2')
     @current_player = player_one
+    type_out(game_notification(:introduction))
   end
 
   def getting_player_selection(player)
@@ -70,7 +72,7 @@ class Game
     print game_notification(:play_again)
     answer = gets.chomp.downcase
     if answer == 'y'
-      Game.new.play_full_round
+      reset_game
     elsif answer == 'n'
       puts game_notification(:game_end)
     else
@@ -79,8 +81,13 @@ class Game
     end
   end
 
+  def reset_game
+    type_out(game_notification(:another_round))
+    @current_board = GameBoard.new
+    play_full_round
+  end
+
   def play_full_round
-    type_out(game_notification(:introduction))
     print_board
     loop do
       execute_move(@current_player)
