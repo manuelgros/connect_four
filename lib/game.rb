@@ -69,9 +69,12 @@ class Game
 
   def play_full_round
     print_board
-    until check_for_win? || current_board.board_full?
+    loop do
       execute_move(@current_player)
       print_board
+
+      break if check_for_win? || current_board.board_full?
+
       next_player
     end
     return puts game_notification(:game_over_win) if check_for_win?
