@@ -67,6 +67,7 @@ class Game
   end
 
   def play_full_round
+    puts "#{game_notification(:introduction)}\n\n"
     print_board
     loop do
       execute_move(@current_player)
