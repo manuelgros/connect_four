@@ -4,8 +4,8 @@ require_relative '../lib/player'
 require_relative '../lib/game_board'
 require_relative '../lib/notifications'
 require_relative '../lib/rendering'
-# Game class including methods for game moves
-# and scripts to run game
+
+# Game class including methods for game moves and scripts to run game
 class Game
   include Notifications
   include Rendering
@@ -67,7 +67,6 @@ class Game
   end
 
   def play_full_round
-    # puts "#{game_notification(:introduction)}\n\n"
     type_out(game_notification(:introduction))
     print_board
     loop do
